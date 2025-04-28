@@ -222,13 +222,19 @@ def lecture_file(file_path):
             { "text": trim_file_colonnes_i ,"anchor": "center" }
          )
          
-      lignes = f.read().split('\n')
+      # lit lignes et enleve ligne vide
+      lignes = [ligne for ligne in f.read().split('\n') if ligne.strip() != '']      
+                  
       nb_lignes_data_import = len(lignes)
       row_data_preview = []
+      
+      
       for ligne in lignes:
          # print(ligne.split(sep)) 
+         
+         # mi ingnorer columns tsisy entete
          row_data_preview.append(
-            ligne.split(sep)
+            ligne.split(sep)[0:len(columns)-1]
          )
          
 
