@@ -123,7 +123,7 @@ def lecture_configfile(file_path,nb_lignes_data_import):
       new_colums = []
       data_preview_cols = []
       
-      file_colonnes = [x for x in file_colonnes if x != ""]
+      file_colonnes = [x.strip() for x in file_colonnes if x != ""]
       
       
 
@@ -217,7 +217,7 @@ def lecture_file(file_path):
          
          trim_file_colonnes_i = str(columns[i]).strip()
          new_colums.append((str(i) , trim_file_colonnes_i+'',))
-         new_colums_name.append(columns[i])
+         new_colums_name.append(trim_file_colonnes_i)
          data_preview_cols.append(
             { "text": trim_file_colonnes_i ,"anchor": "center" }
          )
